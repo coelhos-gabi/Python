@@ -1,0 +1,30 @@
+import PySimpleGUI as sg
+
+# Quando rodar os dados aparecerão no terminal
+
+
+class TelaPython:
+    def __init__(self):
+        # Layout
+        # Serão 3 linhas: 1-Nome 2-Idade 3-enviar
+        layout = [
+            # sg.Text cria um label, sg.input pega o dado
+            [sg.Text('Nome'), sg.Input()],
+            [sg.Text('Idade'), sg.Input()],
+            [sg.Button('Enviar Dados')]
+        ]
+        # Janela
+
+        #"Dados do usuário é o nome da janela"
+        # sg.layout recebe o layout criado anteriormente
+        janela = sg.Window('Dados do usuário').layout(layout)
+
+        # Extrair os dados da tela
+        self.button, self.value = janela.Read()
+
+    def Iniciar(self):
+        print(self.value)
+
+
+tela = TelaPython()
+tela.Iniciar()
